@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Directory - Philip Musee David</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://kit.fontawesome.com/your-kit-id.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'slide-left': 'slideLeft 0.7s ease-out',
+                        'slide-right': 'slideRight 0.7s ease-out',
+                        'ticker': 'ticker 30s linear infinite',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'matrix-rain': 'matrixRain 20s linear infinite',
+                        'rotate-slow': 'rotateSlow 20s linear infinite',
+                        'scale-pulse': 'scalePulse 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        pulseSlow: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(34, 197, 94, 0.5)' },
+                            '100%': { boxShadow: '0 0 20px rgba(34, 197, 94, 0.8)' }
+                        },
+                        matrixRain: {
+                            '0%': { transform: 'translateY(-100vh)' },
+                            '100%': { transform: 'translateY(100vh)' }
+                        },
+                        rotateSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        },
+                        scalePulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-center sm:text-left">
+                    <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                        AI Tools Directory
+                    </h1>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Discover the best AI tools on the internet</p>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative w-full sm:w-96">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Search AI tools by name or category..."
+                        class="w-full pl-10 pr-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                    >
+                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- AI Tools Grid -->
+        <div id="toolsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Tools will be rendered here -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="hidden text-center py-16">
+            <div class="animate-bounce-gentle">
+                <svg class="mx-auto w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m-6 4h6M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No AI tools found</h3>
+            <p class="text-gray-500 dark:text-gray-500">Try adjusting your search terms</p>
+        </div>
+
+        <!-- Support Section -->
+        <section class="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 mb-8 animate-fade-in">
+            <div class="text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                    Support My Work
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                    If you find this AI tools directory helpful, consider supporting me! Your support helps me maintain and improve this resource.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <!-- Buy Me Tea Button -->
+                    <button onclick="openBinancePay()" class="w-full sm:w-auto px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        ☕ Buy Me Tea
+                    </button>
+                    
+                    <!-- Email Button -->
+                    <button onclick="openEmail()" class="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        📧 Send Email
+                    </button>
+                    
+                    <!-- Phone Button -->
+                    <button onclick="showPhone()" class="w-full sm:w-auto px-8 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        📱 Show Phone
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ticker at Bottom -->
+    <footer class="bg-primary-600 dark:bg-primary-700 text-white py-3 overflow-hidden">
+        <div class="whitespace-nowrap animate-ticker">
+            <span class="text-lg font-semibold">
+                Philip Musee David • AI Tools Directory Creator • Philip Musee David • AI Tools Directory Creator • Philip Musee David • AI Tools Directory Creator • Philip Musee David • AI Tools Directory Creator • 
+            </span>
+        </div>
+    </footer>
+
+    <!-- Phone Number Modal -->
+    <div id="phoneModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-sm w-full shadow-2xl transform transition-all duration-300">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Contact Phone</h3>
+                <p class="text-2xl font-mono text-primary-600 dark:text-primary-400 mb-6 select-all">+254794916644</p>
+                <button onclick="closePhoneModal()" class="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors duration-200">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Detail Modal -->
+    <div id="toolModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-auto shadow-2xl transform transition-all duration-300">
+            <div id="toolModalContent">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AI Tools Data - Easy to modify and extend
+        const aiTools = [
+            {
+                name: "ChatGPT",
+                category: "Conversational AI",
+                icon: "fas fa-robot",
+                description: "Advanced conversational AI that can help with writing, coding, analysis, and creative tasks. One of the most versatile AI assistants available.",
+                url: "https://chat.openai.com",
+                features: ["Natural conversation", "Code generation", "Writing assistance", "Problem solving"]
+            },
+            {
+                name: "Claude",
+                category: "Conversational AI",
+                icon: "fas fa-brain",
+                description: "Anthropic's AI assistant focused on being helpful, harmless, and honest. Excellent for analysis, writing, and complex reasoning tasks.",
+                url: "https://claude.ai",
+                features: ["Long-form content", "Document analysis", "Ethical reasoning", "Code review"]
+            },
+            {
+                name: "Gemini",
+                category: "Conversational AI",
+                icon: "fas fa-gem",
+                description: "Google's advanced AI model with multimodal capabilities. Excellent for complex reasoning, coding, and creative tasks with large context windows.",
+                url: "https://gemini.google.com",
+                features: ["Multimodal input", "Large context", "Advanced reasoning", "Google integration"]
+            },
+            {
+                name: "Poe",
+                category: "AI Platform",
+                icon: "fas fa-layer-group",
+                description: "Platform that provides access to multiple AI models including GPT-4, Claude, and others. Perfect for comparing different AI responses.",
+                url: "https://poe.com",
+                features: ["Multiple AI models", "Bot creation", "API access", "Cross-platform"]
+            },
+            {
+                name: "DALL-E 3",
+                category: "Image Generation",
+                icon: "fas fa-palette",
+                description: "OpenAI's powerful image generation model that creates stunning, detailed images from text descriptions with improved prompt understanding.",
+                url: "https://openai.com/dall-e-3",
+                features: ["High-quality images", "Text in images", "Creative concepts", "Style variety"]
+            },
+            {
+                name: "Midjourney",
+                category: "Image Generation",
+                icon: "fas fa-magic",
+                description: "AI art generator known for producing highly artistic and creative images. Popular among artists and designers for its unique aesthetic.",
+                url: "https://midjourney.com",
+                features: ["Artistic style", "High resolution", "Style variations", "Community gallery"]
+            },
+            {
+                name: "Stable Diffusion",
+                category: "Image Generation",
+                icon: "fas fa-cloud",
+                description: "Open-source image generation model that allows for local installation and customization. Highly flexible and community-driven.",
+                url: "https://stability.ai",
+                features: ["Open source", "Local installation", "Custom models", "Commercial use"]
+            },
+            {
+                name: "Leonardo AI",
+                category: "Image Generation",
+                icon: "fas fa-paintbrush",
+                description: "AI-powered creative platform for generating production-quality visual assets with consistent character creation and style control.",
+                url: "https://leonardo.ai",
+                features: ["Character consistency", "Style control", "Video generation", "3D textures"]
+            },
+            {
+                name: "GitHub Copilot",
+                category: "Code Assistant",
+                icon: "fab fa-github",
+                description: "AI-powered code completion tool that helps developers write code faster and more efficiently. Integrated directly into popular code editors.",
+                url: "https://github.com/features/copilot",
+                features: ["Code completion", "IDE integration", "Multiple languages", "Context awareness"]
+            },
+            {
+                name: "Cursor",
+                category: "Code Assistant",
+                icon: "fas fa-code",
+                description: "AI-first code editor built for productivity with natural language editing and codebase understanding.",
+                url: "https://cursor.sh",
+                features: ["AI pair programming", "Natural language editing", "Codebase chat", "Multi-file editing"]
+            },
+            {
+                name: "Replit Ghostwriter",
+                category: "Code Assistant",
+                icon: "fas fa-terminal",
+                description: "AI coding assistant integrated into Replit's online IDE. Offers code completion, explanation, and debugging assistance.",
+                url: "https://replit.com/ai",
+                features: ["Online IDE", "Code explanation", "Debugging help", "Multi-language support"]
+            },
+            {
+                name: "Notion AI",
+                category: "Productivity",
+                icon: "fas fa-sticky-note",
+                description: "AI writing assistant built into Notion that helps with content creation, summarization, and workspace organization.",
+                url: "https://notion.so/product/ai",
+                features: ["Writing assistance", "Summarization", "Translation", "Workspace integration"]
+            },
+            {
+                name: "Grammarly",
+                category: "Writing Assistant",
+                icon: "fas fa-spell-check",
+                description: "AI-powered writing assistant that checks grammar, spelling, style, and tone. Helps improve writing quality across platforms.",
+                url: "https://grammarly.com",
+                features: ["Grammar checking", "Style suggestions", "Tone detection", "Plagiarism detection"]
+            },
+            {
+                name: "Jasper AI",
+                category: "Content Creation",
+                icon: "fas fa-pen-fancy",
+                description: "AI content creation platform designed for marketing teams and businesses. Specializes in brand-consistent content generation.",
+                url: "https://jasper.ai",
+                features: ["Brand voice", "Marketing copy", "SEO optimization", "Team collaboration"]
+            },
+            {
+                name: "Copy.ai",
+                category: "Content Creation",
+                icon: "fas fa-copy",
+                description: "AI copywriting tool that helps create marketing content, social media posts, and business communications quickly and effectively.",
+                url: "https://copy.ai",
+                features: ["Marketing copy", "Social media", "Email campaigns", "Product descriptions"]
+            },
+            {
+                name: "Perplexity AI",
+                category: "Research",
+                icon: "fas fa-search",
+                description: "AI-powered search engine that provides accurate, real-time answers with citations. Perfect for research and fact-checking.",
+                url: "https://perplexity.ai",
+                features: ["Real-time search", "Source citations", "Follow-up questions", "Academic mode"]
+            },
+            {
+                name: "Runway ML",
+                category: "Video/Media",
+                icon: "fas fa-video",
+                description: "Creative AI platform for video editing, image generation, and multimedia content creation. Popular among content creators and filmmakers.",
+                url: "https://runwayml.com",
+                features: ["Video editing", "Green screen", "Motion graphics", "Real-time collaboration"]
+            },
+            {
+                name: "ElevenLabs",
+                category: "Audio/Speech",
+                icon: "fas fa-microphone",
+                description: "Advanced AI voice synthesis platform that creates realistic speech from text with emotion and natural intonation.",
+                url: "https://elevenlabs.io",
+                features: ["Voice cloning", "Multiple languages", "Emotional speech", "API access"]
+            },
+            {
+                name: "Synthesia",
+                category: "Video/AI Avatars",
+                icon: "fas fa-user-circle",
+                description: "AI video generation platform that creates professional videos with AI avatars. No cameras, microphones, or actors needed.",
+                url: "https://synthesia.io",
+                features: ["AI avatars", "Multi-language", "Professional templates", "Custom avatars"]
+            },
+            {
+                name: "Zapier AI",
+                category: "Automation",
+                icon: "fas fa-bolt",
+                description: "AI-powered automation platform that connects apps and automates workflows with natural language instructions.",
+                url: "https://zapier.com/ai",
+                features: ["Workflow automation", "App integration", "Natural language", "No-code solutions"]
+            }
+        ];
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark mode detection
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                if (event.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            });
+
+            renderTools(aiTools);
+            setupSearch();
+            setupScrollAnimations();
+        });
+
+        // Render AI tools
+        function renderTools(tools) {
+            const container = document.getElementById('toolsContainer');
+            const noResults = document.getElementById('noResults');
+            
+            if (tools.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            container.innerHTML = tools.map((tool, index) => {
+                const animationClass = index % 2 === 0 ? 'animate-slide-left' : 'animate-slide-right';
+                return `
+                <div class="tool-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 cursor-pointer border border-gray-200 dark:border-gray-700 ${animationClass} hover:animate-glow group relative overflow-hidden" 
+                     style="animation-delay: ${index * 0.1}s"
+                     onclick="openToolModal(${JSON.stringify(tool).replace(/"/g, '&quot;')})">
+                    
+                    <!-- Tech Background Pattern -->
+                    <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                        <div class="absolute top-2 right-2 w-16 h-16 border border-primary-300 rounded-full animate-rotate-slow"></div>
+                        <div class="absolute bottom-2 left-2 w-8 h-8 bg-primary-200 rounded-full animate-pulse-slow"></div>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="relative z-10">
+                        <!-- Icon and Title Row -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:animate-scale-pulse">
+                                    <i class="${tool.icon} text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">${tool.name}</h3>
+                            </div>
+                            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-300">
+                                ${tool.category}
+                            </span>
+                        </div>
+                        
+                        <!-- Description -->
+                        <p class="text-gray-600 dark:text-gray-300 text-sm line-clamp-3 mb-4 leading-relaxed">
+                            ${tool.description}
+                        </p>
+                        
+                        <!-- Features and Arrow -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-wrap gap-2">
+                                ${tool.features.slice(0, 2).map(feature => `
+                                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-md hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">
+                                        ${feature}
+                                    </span>
+                                `).join('')}
+                                ${tool.features.length > 2 ? `<span class="text-xs text-gray-500 dark:text-gray-400 animate-pulse-slow">+${tool.features.length - 2} more</span>` : ''}
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-all duration-300 group-hover:animate-bounce-gentle">
+                                    <svg class="w-4 h-4 text-primary-600 dark:text-primary-400 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const filteredTools = aiTools.filter(tool => 
+                    tool.name.toLowerCase().includes(searchTerm) ||
+                    tool.category.toLowerCase().includes(searchTerm) ||
+                    tool.description.toLowerCase().includes(searchTerm) ||
+                    tool.features.some(feature => feature.toLowerCase().includes(searchTerm))
+                );
+                renderTools(filteredTools);
+            });
+        }
+
+        // Open tool modal
+        function openToolModal(tool) {
+            const modal = document.getElementById('toolModal');
+            const content = document.getElementById('toolModalContent');
+            
+            content.innerHTML = `
+                <div class="p-8">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-white shadow-lg animate-scale-pulse">
+                                <i class="${tool.icon} text-2xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">${tool.name}</h2>
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full">
+                                    ${tool.category}
+                                </span>
+                            </div>
+                        </div>
+                        <button onclick="closeToolModal()" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors duration-200">
+                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        ${tool.description}
+                    </p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Key Features</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            ${tool.features.map(feature => `
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700 dark:text-gray-300">${feature}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" 
+                           class="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl text-center">
+                            Visit Official Site
+                        </a>
+                        <button onclick="closeToolModal()" 
+                                class="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl transition-colors duration-200">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close tool modal
+        function closeToolModal() {
+            document.getElementById('toolModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Support functions
+        function openBinancePay() {
+            window.open('https://pay.binance.com/en/checkout/724543161', '_blank');
+        }
+
+        function openEmail() {
+            window.open('mailto:philipmuseedavid@gmail.com', '_blank');
+        }
+
+        function showPhone() {
+            document.getElementById('phoneModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePhoneModal() {
+            document.getElementById('phoneModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Scroll animations
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.tool-card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('toolModal').addEventListener('click', function(e) {
+            if (e.target === this) closeToolModal();
+        });
+
+        document.getElementById('phoneModal').addEventListener('click', function(e) {
+            if (e.target === this) closePhoneModal();
+        });
+
+        // Add custom CSS for line clamping
+        const style = document.createElement('style');
+        style.textContent = `
+            .line-clamp-3 {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
